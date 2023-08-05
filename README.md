@@ -34,9 +34,9 @@ npm install -g pm2
 
 Run - pm2 start dist/index.js
 
-Run - pm2 list to check the status of the index
+Run - pm2 list to check the status of the blockchain-task
 
-Run - pm2 logs to check index logs
+Run - pm2 logs to check blockchain-task logs
 
 
 ## Config variables explanation
