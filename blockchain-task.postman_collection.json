@@ -1,0 +1,785 @@
+{
+	"info": {
+		"_postman_id": "9bd8357f-1ab2-4aef-86e6-ae5ad07ee3ee",
+		"name": "Klimbb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28961603"
+	},
+	"item": [
+		{
+			"name": "Create Transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fromAddress\":\"user2@gmail.com\",\n    \"toAddress\":\"user1@gmail.com\",\n    \"amount\":34534.12\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transaction"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "user2@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fromAddress\":\"user2@gmail.com\",\n    \"toAddress\":\"user1@gmail.com\",\n    \"amount\":34534.12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"69-+zS5+mM+00X+BQKHDQDbji6vHcc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:52:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success\",\n    \"fromAddress\": \"user2@gmail.com\",\n    \"toAddress\": \"user1@gmail.com\",\n    \"amount\": 34534.12\n}"
+				},
+				{
+					"name": "Bad Request Negative Amount",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fromAddress\":\"user2@gmail.com\",\n    \"toAddress\":\"user1@gmail.com\",\n    \"amount\":-4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "127"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"7f-umSHQrvk7oo2gnGB8OLLKPhEmFc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:53:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"amount should not be less than zero\",\n    \"fromAddress\": \"user2@gmail.com\",\n    \"toAddress\": \"user1@gmail.com\",\n    \"amount\": -4\n}"
+				},
+				{
+					"name": "Bad Request - Same Address",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fromAddress\":\"\",\n    \"toAddress\":\"user1@gmail.com\",\n    \"amount\":34534.12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-NoKUrpaR+rIMPzhfZPRPTT1Yi84\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:53:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Sender and receiver address should not be same\",\n    \"fromAddress\": \"user1@gmail.com\",\n    \"toAddress\": \"user1@gmail.com\",\n    \"amount\": 34534.12\n}"
+				},
+				{
+					"name": "Bad Request - Sender address missing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fromAddress\":\"\",\n    \"toAddress\":\"user1@gmail.com\",\n    \"amount\":34534.12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"69-dJHmromaHPzdgmQjUMGhaKOwANE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:54:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Sender address is missing\",\n    \"fromAddress\": \"\",\n    \"toAddress\": \"user1@gmail.com\",\n    \"amount\": 34534.12\n}"
+				},
+				{
+					"name": "Bad Request - Receiver address missing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fromAddress\":\"user1@gmail.com\",\n    \"toAddress\":\"\",\n    \"amount\":34534.12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6b-PDGIz/Mg+GXoL0zUVwo3CEvAcFg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:55:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Recevier address is missing\",\n    \"fromAddress\": \"user1@gmail.com\",\n    \"toAddress\": \"\",\n    \"amount\": 34534.12\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Balance",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\":\"user1@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"balance"
+					],
+					"query": [
+						{
+							"key": "address",
+							"value": "user2@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"user1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/balance",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"balance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "70"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"46-WTatJmNd61RkBhp5xoZCqDAfSMQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:50:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success\",\n    \"address\": \"user1@gmail.com\",\n    \"balance\": 103602.36\n}"
+				},
+				{
+					"name": "Bad Request - Address is missing",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/balance",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"balance"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "57"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"39-YuGCCUsXRwmHeNeXOI1fgrzc1HM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:51:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Address is missing\",\n    \"address\": \"\",\n    \"balance\": 0\n}"
+				},
+				{
+					"name": "Success - Data not available for user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"user1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/balance",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"balance"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "69"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"45-xjfW7raAccEXepUKVr6RSi7+13s\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 04:00:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Data not exist\",\n    \"address\": \"user1@gmail.com\",\n    \"balance\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Transaction List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\":\"user1@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/transaction-list",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"transaction-list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"user1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction-list",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction-list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "618"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"26a-ejlm20fqhOHQkWeTb/ZVmOwDy2k\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:51:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"success\",\n    \"address\": \"user1@gmail.com\",\n    \"List\": [\n        {\n            \"prevHash\": \"27150\",\n            \"currentHash\": \"42113\",\n            \"transaction\": {\n                \"fromAddress\": \"user2@gmail.com\",\n                \"toAddress\": \"user1@gmail.com\",\n                \"amount\": 34534.12\n            },\n            \"timestamp\": 1691207260206,\n            \"nonce\": 446012942\n        },\n        {\n            \"prevHash\": \"12280\",\n            \"currentHash\": \"27150\",\n            \"transaction\": {\n                \"fromAddress\": \"user2@gmail.com\",\n                \"toAddress\": \"user1@gmail.com\",\n                \"amount\": 34534.12\n            },\n            \"timestamp\": 1691207257453,\n            \"nonce\": 614547500\n        },\n        {\n            \"prevHash\": \"248\",\n            \"currentHash\": \"12280\",\n            \"transaction\": {\n                \"fromAddress\": \"user2@gmail.com\",\n                \"toAddress\": \"user1@gmail.com\",\n                \"amount\": 34534.12\n            },\n            \"timestamp\": 1691207127738,\n            \"nonce\": 802207276\n        }\n    ]\n}"
+				},
+				{
+					"name": "Bad Request - Address is missing",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction-list",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction-list"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-3LaBmQ2IE9r0625ClOV6NOJLmXc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 03:52:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Address is missing\",\n    \"address\": \"\",\n    \"List\": []\n}"
+				},
+				{
+					"name": "Success - Data not available for user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address\":\"user1@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/transaction-list",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"transaction-list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"43-AsbsFJz0NwNWcWZ9C4czcE/SLE0\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 05 Aug 2023 04:00:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Data not exist\",\n    \"address\": \"user1@gmail.com\",\n    \"List\": []\n}"
+				}
+			]
+		}
+	]
+}
