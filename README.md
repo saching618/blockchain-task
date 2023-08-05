@@ -4,25 +4,29 @@ This is a simple demo of blockchain transaction API, which have three endpoints 
 This project is using Node.JS, express server and TypeScript.
 
 
-# Requirements
+## Requirements
 NodeJS v16.x 
 
-# Setup Guide
+## Setup Guide
 Clone this project
 
 Run - npm install
 
 Run - npm run dev
 
-API ENDPOINT http://localhost:8000 in your browser.
+API ENDPOINT http://localhost:8000 
 
-# Guide to test using postman collection
+
+## Guide to test using postman collection
+
   import given file in repo in postman to test endpoints.
-## filename: blockchain-task.postman_collection.json
+  
+  ### filename: blockchain-task.postman_collection.json
 
-API ENDPOINT http://localhost:8000 in your browser.
+API ENDPOINT http://localhost:8000
 
-# How to keep it running forever
+
+## How to keep it running forever
 
 Install pm2 with 
 
@@ -34,8 +38,9 @@ Run - pm2 list to check the status of the index
 
 Run - pm2 logs to check index logs
 
-# Config variables explanation
-# .env
 
-# Required params
+## Config variables explanation
+filename '/.env'
+
+## Required params
 PORT= # port number of server
