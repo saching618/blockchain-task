@@ -16,6 +16,12 @@ Run - npm run dev
 
 API ENDPOINT http://localhost:8000 in your browser.
 
+# Guide to test using postman collection
+  import given file in repo in postman to test endpoints.
+## filename: blockchain-task.postman_collection.json
+
+API ENDPOINT http://localhost:8000 in your browser.
+
 # How to keep it running forever
 
 Install pm2 with 
