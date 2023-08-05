@@ -1,18 +1,18 @@
 
 import { throws } from 'assert';
-import {Request, Response } from 'express';
+import { Request, Response } from 'express';
 
 
-const testServer = async(req: Request,res: Response)=> {
-    try{
+const testServer = async (req: Request, res: Response) => {
+    try {
         const data = {
-            Controller:"CommonControler",
-            method:"test Server"
+            Controller: "CommonControler",
+            method: "test Server"
         }
-        return {code:200,data};
+        return { code: 200, data };
     }
-    catch(error){
-        return {code:500,error};
+    catch (error) {
+        return { code: 500, error };
     }
 }
 
